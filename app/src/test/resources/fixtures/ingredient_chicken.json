@@ -1,0 +1,14 @@
+﻿{
+  "meals": [
+    {
+      "strMeal": "Chicken Handi",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+      "idMeal": "52795"
+    },
+    {
+      "strMeal": "Brown Stew Chicken",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg",
+      "idMeal": "52934"
+    }
+  ]
+}

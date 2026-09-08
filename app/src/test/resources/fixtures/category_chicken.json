@@ -1,0 +1,24 @@
+﻿{
+  "meals": [
+    {
+      "strMeal": "Chicken Handi",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+      "idMeal": "52795"
+    },
+    {
+      "strMeal": "Chicken Marengo",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/qpxuvr1511810614.jpg",
+      "idMeal": "52920"
+    },
+    {
+      "strMeal": "Kentucky Fried Chicken",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/xqusqy1487348868.jpg",
+      "idMeal": "52813"
+    },
+    {
+      "strMeal": "Chicken Tikka Masala",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979828.jpg",
+      "idMeal": "52894"
+    }
+  ]
+}

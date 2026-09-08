@@ -1,0 +1,29 @@
+﻿{
+  "meals": [
+    {
+      "strMeal": "Chicken Handi",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+      "idMeal": "52795"
+    },
+    {
+      "strMeal": "Dal fry",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg",
+      "idMeal": "52785"
+    },
+    {
+      "strMeal": "Kidney Bean Curry",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/sywrsq1511723425.jpg",
+      "idMeal": "52865"
+    },
+    {
+      "strMeal": "Matar Paneer",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/xxpqsy1511452222.jpg",
+      "idMeal": "52862"
+    },
+    {
+      "strMeal": "Chicken Tikka Masala",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979828.jpg",
+      "idMeal": "52894"
+    }
+  ]
+}
