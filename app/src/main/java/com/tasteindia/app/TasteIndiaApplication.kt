@@ -1,7 +1,7 @@
-﻿package com.tasteindia.app
+package com.tasteindia.app
 
 import android.app.Application
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.tasteindia.app.core.network.TheMealDbApi
 import com.tasteindia.app.data.local.FavouritesDataSource
 import com.tasteindia.app.data.local.SharedPreferencesFavouritesDataSource
