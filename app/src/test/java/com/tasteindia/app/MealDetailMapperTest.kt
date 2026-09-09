@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app
+package com.tasteindia.app
 
 import com.tasteindia.app.data.dto.MealDetailResponseDto
 import com.tasteindia.app.domain.mapper.MealDetailMapper
@@ -18,7 +18,7 @@ class MealDetailMapperTest {
 
     @Test
     fun normalizeIngredients_omitsBlankAndWhitespaceEntries() {
-        val stream = javaClass.classLoader?.getResourceAsStream("fixtures/meal_lookup_52772.json")
+        val stream = javaClass.classLoader?.getResourceAsStream("fixtures/meal_lookup_52772.json") ?: javaClass.getResourceAsStream("/fixtures/meal_lookup_52772.json") ?: javaClass.getResourceAsStream("fixtures/meal_lookup_52772.json")
         assertNotNull("Fixture meal_lookup_52772.json must exist", stream)
 
         val jsonString = InputStreamReader(stream!!).readText()

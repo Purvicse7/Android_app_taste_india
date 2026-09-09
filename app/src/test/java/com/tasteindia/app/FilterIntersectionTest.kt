@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app
+package com.tasteindia.app
 
 import com.tasteindia.app.core.dispatcher.CoroutineDispatchers
 import com.tasteindia.app.core.network.TheMealDbApi
@@ -64,8 +64,8 @@ class FilterIntersectionTest {
 
     @Test
     fun filterMeals_preservesIndianBoundaryWhenCategoryFilterApplied() = runTest {
-        val indianStream = javaClass.classLoader!!.getResourceAsStream("fixtures/indian_meals.json")
-        val chickenStream = javaClass.classLoader!!.getResourceAsStream("fixtures/category_chicken.json")
+        val indianStream = javaClass.classLoader?.getResourceAsStream("fixtures/indian_meals.json") ?: javaClass.getResourceAsStream("/fixtures/indian_meals.json") ?: javaClass.getResourceAsStream("fixtures/indian_meals.json")
+        val chickenStream = javaClass.classLoader?.getResourceAsStream("fixtures/category_chicken.json") ?: javaClass.getResourceAsStream("/fixtures/category_chicken.json") ?: javaClass.getResourceAsStream("fixtures/category_chicken.json")
 
         val indianJson = InputStreamReader(indianStream).readText()
         val chickenJson = InputStreamReader(chickenStream).readText()
