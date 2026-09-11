@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.core.dispatcher
+package com.tasteindia.app.core.dispatcher
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

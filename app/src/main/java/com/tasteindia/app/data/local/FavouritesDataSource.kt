@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.data.local
+package com.tasteindia.app.data.local
 
 import android.content.Context
 import android.content.SharedPreferences

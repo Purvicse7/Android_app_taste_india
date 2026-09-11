@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.domain.model
+package com.tasteindia.app.domain.model
 
 data class MealSummary(
     val id: String,

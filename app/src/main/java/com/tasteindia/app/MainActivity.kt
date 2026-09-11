@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app
+package com.tasteindia.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

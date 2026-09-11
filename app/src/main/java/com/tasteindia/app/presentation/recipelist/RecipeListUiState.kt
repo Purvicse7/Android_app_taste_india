@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.presentation.recipelist
+package com.tasteindia.app.presentation.recipelist
 
 import com.tasteindia.app.domain.model.MealSummary
 

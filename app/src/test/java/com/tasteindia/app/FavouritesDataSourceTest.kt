@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app
+package com.tasteindia.app
 
 import com.tasteindia.app.data.local.FavouritesDataSource
 import kotlinx.coroutines.flow.Flow

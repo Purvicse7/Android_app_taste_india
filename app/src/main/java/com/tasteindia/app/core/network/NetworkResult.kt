@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.core.network
+package com.tasteindia.app.core.network
 
 sealed interface NetworkResult<out T> {
     data class Success<T>(val data: T) : NetworkResult<T>

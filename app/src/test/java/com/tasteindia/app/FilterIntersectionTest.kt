@@ -64,8 +64,10 @@ class FilterIntersectionTest {
         val chickenStream = javaClass.classLoader?.getResourceAsStream("fixtures/category_chicken.json") 
             ?: javaClass.getResourceAsStream("/fixtures/category_chicken.json")
 
-        val indianJson = if (indianStream != null) InputStreamReader(indianStream).readText() else TestFixtures.indianMealsJson
-        val chickenJson = if (chickenStream != null) InputStreamReader(chickenStream).readText() else TestFixtures.categoryChickenJson
+        val indianJson = (if (indianStream != null) InputStreamReader(indianStream, Charsets.UTF_8).readText() else TestFixtures.indianMealsJson)
+            .trim().removePrefix("\uFEFF")
+        val chickenJson = (if (chickenStream != null) InputStreamReader(chickenStream, Charsets.UTF_8).readText() else TestFixtures.categoryChickenJson)
+            .trim().removePrefix("\uFEFF")
 
         val fakeApi = FakeMealDbApi(indianJson, chickenJson)
         val fakeFavs = FakeFavouritesDataSource()

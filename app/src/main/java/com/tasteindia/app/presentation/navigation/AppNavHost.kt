@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.presentation.navigation
+package com.tasteindia.app.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

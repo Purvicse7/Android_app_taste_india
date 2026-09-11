@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.domain.mapper
+package com.tasteindia.app.domain.mapper
 
 import com.tasteindia.app.data.dto.MealDetailDto
 import com.tasteindia.app.data.dto.MealSummaryDto

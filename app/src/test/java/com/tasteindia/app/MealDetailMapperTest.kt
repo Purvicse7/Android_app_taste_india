@@ -20,11 +20,11 @@ class MealDetailMapperTest {
     fun normalizeIngredients_omitsBlankAndWhitespaceEntries() {
         val stream = javaClass.classLoader?.getResourceAsStream("fixtures/meal_lookup_52772.json") 
             ?: javaClass.getResourceAsStream("/fixtures/meal_lookup_52772.json")
-        val jsonString = if (stream != null) {
-            InputStreamReader(stream).readText()
+        val jsonString = (if (stream != null) {
+            InputStreamReader(stream, Charsets.UTF_8).readText()
         } else {
             TestFixtures.mealDetail52795Json
-        }
+        }).trim().removePrefix("\uFEFF")
 
         val response = json.decodeFromString<MealDetailResponseDto>(jsonString)
         val dto = response.meals?.firstOrNull()

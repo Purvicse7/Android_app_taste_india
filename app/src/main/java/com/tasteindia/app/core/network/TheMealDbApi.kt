@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.core.network
+package com.tasteindia.app.core.network
 
 import com.tasteindia.app.data.dto.CategoryListResponseDto
 import com.tasteindia.app.data.dto.IngredientListResponseDto

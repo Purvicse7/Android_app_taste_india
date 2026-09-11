@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.presentation.recipelist.components
+package com.tasteindia.app.presentation.recipelist.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

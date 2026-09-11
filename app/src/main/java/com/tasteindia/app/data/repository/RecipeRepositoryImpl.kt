@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.data.repository
+package com.tasteindia.app.data.repository
 
 import com.tasteindia.app.core.dispatcher.CoroutineDispatchers
 import com.tasteindia.app.core.network.TheMealDbApi

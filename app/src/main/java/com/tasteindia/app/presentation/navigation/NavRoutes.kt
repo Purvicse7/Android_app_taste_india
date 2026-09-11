@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.presentation.navigation
+package com.tasteindia.app.presentation.navigation
 
 object NavRoutes {
     const val RECIPE_LIST = "recipe_list"

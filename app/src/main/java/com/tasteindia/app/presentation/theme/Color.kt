@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.presentation.theme
+package com.tasteindia.app.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

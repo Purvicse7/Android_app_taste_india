@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.presentation.recipedetail
+package com.tasteindia.app.presentation.recipedetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

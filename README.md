@@ -1,4 +1,4 @@
-﻿# TasteIndia — Android (Indian Cuisine Discovery)
+# TasteIndia — Android (Indian Cuisine Discovery)
 
 A native Android application built with Kotlin, Jetpack Compose, and Material 3 for discovering Indian recipes powered by TheMealDB API.
 

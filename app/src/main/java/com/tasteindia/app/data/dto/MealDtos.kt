@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app.data.dto
+package com.tasteindia.app.data.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
