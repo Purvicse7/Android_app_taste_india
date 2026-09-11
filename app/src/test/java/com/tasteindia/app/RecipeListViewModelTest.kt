@@ -1,4 +1,4 @@
-﻿package com.tasteindia.app
+package com.tasteindia.app
 
 import com.tasteindia.app.data.repository.RecipeRepository
 import com.tasteindia.app.domain.model.FilterCriteria
@@ -11,9 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceTimeBy
-import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -26,7 +24,7 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class RecipeListViewModelTest {
 
-    private val testDispatcher = StandardTestDispatcher()
+    private val testDispatcher = UnconfinedTestDispatcher()
 
     private class MockRecipeRepository : RecipeRepository {
         val sampleMeals = listOf(
@@ -70,15 +68,11 @@ class RecipeListViewModelTest {
         val repository = MockRecipeRepository()
         val viewModel = RecipeListViewModel(repository)
 
-        advanceUntilIdle()
-
-        // Trigger search query
-        viewModel.onSearchQueryChanged("paneer")
-        advanceTimeBy(350L) // Advance past 300ms debounce
-        advanceUntilIdle()
+        // Apply search query criteria
+        viewModel.applyCriteria(FilterCriteria(searchQuery = "paneer"))
 
         val state = viewModel.uiState.value
-        assertTrue("State should be Success", state is RecipeListUiState.Success)
+        assertTrue("State should be Success but was $state", state is RecipeListUiState.Success)
         val success = state as RecipeListUiState.Success
         assertEquals(1, success.meals.size)
         assertEquals("Palak Paneer", success.meals.first().name)

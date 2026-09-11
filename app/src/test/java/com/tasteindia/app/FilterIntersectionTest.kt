@@ -9,9 +9,9 @@ import com.tasteindia.app.data.dto.MealsResponseDto
 import com.tasteindia.app.data.local.FavouritesDataSource
 import com.tasteindia.app.data.repository.RecipeRepositoryImpl
 import com.tasteindia.app.domain.model.FilterCriteria
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.Assert.assertEquals
@@ -69,8 +69,11 @@ class FilterIntersectionTest {
 
         val fakeApi = FakeMealDbApi(indianJson, chickenJson)
         val fakeFavs = FakeFavouritesDataSource()
-        val testDispatcher = StandardTestDispatcher(testScheduler)
-        val dispatchers = CoroutineDispatchers(testDispatcher, testDispatcher, testDispatcher)
+        val dispatchers = CoroutineDispatchers(
+            main = Dispatchers.Unconfined,
+            io = Dispatchers.Unconfined,
+            default = Dispatchers.Unconfined
+        )
 
         val repository = RecipeRepositoryImpl(fakeApi, fakeFavs, dispatchers)
 

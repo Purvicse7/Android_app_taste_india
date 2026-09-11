@@ -23,4 +23,4 @@ jobs:
       run: chmod +x gradlew
 
     - name: Run Unit Tests
-      run: ./gradlew test --stacktrace
+      run: ./gradlew testDebugUnitTest --stacktrace --info
