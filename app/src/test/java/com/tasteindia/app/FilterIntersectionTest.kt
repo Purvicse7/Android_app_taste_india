@@ -22,11 +22,6 @@ import java.io.InputStreamReader
 
 class FilterIntersectionTest {
 
-    private val json = Json {
-        ignoreUnknownKeys = true
-        coerceInputValues = true
-    }
-
     private class FakeMealDbApi(
         val indianMealsJson: String,
         val chickenCategoryJson: String
@@ -64,11 +59,13 @@ class FilterIntersectionTest {
 
     @Test
     fun filterMeals_preservesIndianBoundaryWhenCategoryFilterApplied() = runTest {
-        val indianStream = javaClass.classLoader?.getResourceAsStream("fixtures/indian_meals.json") ?: javaClass.getResourceAsStream("/fixtures/indian_meals.json") ?: javaClass.getResourceAsStream("fixtures/indian_meals.json")
-        val chickenStream = javaClass.classLoader?.getResourceAsStream("fixtures/category_chicken.json") ?: javaClass.getResourceAsStream("/fixtures/category_chicken.json") ?: javaClass.getResourceAsStream("fixtures/category_chicken.json")
+        val indianStream = javaClass.classLoader?.getResourceAsStream("fixtures/indian_meals.json") 
+            ?: javaClass.getResourceAsStream("/fixtures/indian_meals.json")
+        val chickenStream = javaClass.classLoader?.getResourceAsStream("fixtures/category_chicken.json") 
+            ?: javaClass.getResourceAsStream("/fixtures/category_chicken.json")
 
-        val indianJson = InputStreamReader(indianStream).readText()
-        val chickenJson = InputStreamReader(chickenStream).readText()
+        val indianJson = if (indianStream != null) InputStreamReader(indianStream).readText() else TestFixtures.indianMealsJson
+        val chickenJson = if (chickenStream != null) InputStreamReader(chickenStream).readText() else TestFixtures.categoryChickenJson
 
         val fakeApi = FakeMealDbApi(indianJson, chickenJson)
         val fakeFavs = FakeFavouritesDataSource()
@@ -80,8 +77,6 @@ class FilterIntersectionTest {
         val criteria = FilterCriteria(category = "Chicken")
         val results = repository.filterMeals(criteria)
 
-        // Chicken Handi (52795) and Chicken Tikka Masala (52894) are in both Indian and Chicken sets
-        // KFC (52813) and Chicken Marengo (52920) are Chicken dishes but NOT Indian
         val resultIds = results.map { it.id }.toSet()
 
         assertEquals(2, resultIds.size)

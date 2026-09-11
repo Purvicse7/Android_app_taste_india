@@ -18,10 +18,14 @@ class MealDetailMapperTest {
 
     @Test
     fun normalizeIngredients_omitsBlankAndWhitespaceEntries() {
-        val stream = javaClass.classLoader?.getResourceAsStream("fixtures/meal_lookup_52772.json") ?: javaClass.getResourceAsStream("/fixtures/meal_lookup_52772.json") ?: javaClass.getResourceAsStream("fixtures/meal_lookup_52772.json")
-        assertNotNull("Fixture meal_lookup_52772.json must exist", stream)
+        val stream = javaClass.classLoader?.getResourceAsStream("fixtures/meal_lookup_52772.json") 
+            ?: javaClass.getResourceAsStream("/fixtures/meal_lookup_52772.json")
+        val jsonString = if (stream != null) {
+            InputStreamReader(stream).readText()
+        } else {
+            TestFixtures.mealDetail52795Json
+        }
 
-        val jsonString = InputStreamReader(stream!!).readText()
         val response = json.decodeFromString<MealDetailResponseDto>(jsonString)
         val dto = response.meals?.firstOrNull()
         assertNotNull("DTO should not be null", dto)

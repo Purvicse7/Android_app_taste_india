@@ -1,4 +1,4 @@
-﻿plugins {
+plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
@@ -44,6 +44,19 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+            all {
+                it.testLogging {
+                    events("passed", "skipped", "failed", "standardOut", "standardError")
+                    showExceptions = true
+                    showStackTraces = true
+                    showCauses = true
+                }
+            }
         }
     }
 }
