@@ -27,6 +27,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import com.tasteindia.app.domain.model.MealSummary
 
@@ -95,5 +96,24 @@ fun RecipeCard(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RecipeCardPreview() {
+    MaterialTheme {
+        RecipeCard(
+            meal = MealSummary(
+                id = "52795",
+                name = "Chicken Handi",
+                thumbnailUrl = "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg",
+                category = "Chicken"
+            ),
+            isFavourite = true,
+            onRecipeClick = {},
+            onToggleFavourite = {},
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }
