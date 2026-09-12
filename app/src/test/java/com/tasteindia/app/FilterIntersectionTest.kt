@@ -31,6 +31,9 @@ class FilterIntersectionTest {
         override suspend fun getIndianMeals(): MealsResponseDto =
             json.decodeFromString(indianMealsJson)
 
+        override suspend fun getMealsByArea(area: String): MealsResponseDto =
+            MealsResponseDto(emptyList())
+
         override suspend fun getMealDetail(mealId: String): MealDetailResponseDto =
             MealDetailResponseDto(emptyList())
 

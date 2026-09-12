@@ -40,8 +40,16 @@ class RecipeRepositoryImpl(
             if (!forceRefresh && cachedIndianMeals != null) {
                 return@withLock cachedIndianMeals!!
             }
-            val response = api.getIndianMeals()
-            val summaries = response.meals.orEmpty().map { MealDetailMapper.mapSummary(it) }
+            var response = runCatching { api.getIndianMeals() }.getOrNull()
+            var meals = response?.meals.orEmpty()
+            if (meals.isEmpty()) {
+                val fallback = runCatching { api.getMealsByArea("Indian") }.getOrNull()
+                val fallbackMeals = fallback?.meals.orEmpty()
+                if (fallbackMeals.isNotEmpty()) {
+                    meals = fallbackMeals
+                }
+            }
+            val summaries = meals.map { MealDetailMapper.mapSummary(it) }
             cachedIndianMeals = summaries
             summaries
         }

@@ -9,8 +9,11 @@ import retrofit2.http.Query
 
 interface TheMealDbApi {
 
-    @GET("filter.php?a=Indian")
+    @GET("filter.php?a=India")
     suspend fun getIndianMeals(): MealsResponseDto
+
+    @GET("filter.php")
+    suspend fun getMealsByArea(@Query("a") area: String): MealsResponseDto
 
     @GET("lookup.php")
     suspend fun getMealDetail(@Query("i") mealId: String): MealDetailResponseDto
