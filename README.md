@@ -14,7 +14,41 @@ A native Android application built with Kotlin, Jetpack Compose, and Material 3 
 
 ---
 
-## 2. Architecture & Design
+## 2. How to Build & Run the App
+
+### Option 1: Open in Android Studio (Recommended)
+1. Launch **Android Studio** (Koala / Ladybug or newer recommended).
+2. Click **File -> Open...** and select this directory (`TasteIndia-Android`).
+3. Allow Gradle to sync dependencies (configured with JDK 17 / 21).
+4. **To view Compose Previews:**
+   - Open `app/src/main/java/com/tasteindia/app/presentation/recipelist/components/RecipeCard.kt`.
+   - Switch to **Split** or **Design** mode at the top-right corner of the editor to inspect interactive UI previews.
+5. **To run on an Emulator or Physical Device:**
+   - Select a connected Android device or launch an Android Virtual Device (AVD, API 26+) from Device Manager.
+   - Click the green **Run 'app'** button (`Shift + F10` or `▶`).
+
+### Option 2: Command Line (CLI) & APK Build
+Ensure `JAVA_HOME` points to JDK 17 or JDK 21:
+```bash
+# Run all 4 deterministic unit tests offline
+./gradlew testDebugUnitTest
+
+# Assemble the runnable debug APK
+./gradlew assembleDebug
+
+# Install directly onto a connected device via ADB
+./gradlew installDebug
+```
+*Generated APK Output:* `app/build/outputs/apk/debug/app-debug.apk`
+
+### Option 3: Direct APK Installation on an Android Phone
+1. Transfer `app/build/outputs/apk/debug/app-debug.apk` to your Android device via USB, Google Drive, or messaging.
+2. Tap the `.apk` file on your phone to install (allow "Install unknown apps" if prompted).
+3. Open **TasteIndia** from your app drawer.
+
+---
+
+## 3. Architecture & Design
 
 The application follows Clean Architecture with unidirectional data flow and MVI-inspired UI state machines:
 
@@ -44,11 +78,11 @@ The application follows Clean Architecture with unidirectional data flow and MVI
 
 ---
 
-## 3. Key Technical Decisions & Rubric Compliance
+## 4. Key Technical Decisions & Rubric Compliance
 
 ### A. The "Indian Boundary" Local Set Intersection Strategy
 TheMealDB V1 does not offer an endpoint combining cuisine area, category, and ingredients simultaneously. Calling `filter.php?c=Chicken` returns worldwide dishes (e.g., KFC, Chicken Marengo).
-* **Implementation:** The app fetches the authoritative Indian meal base set via `filter.php?a=Indian`. When category or ingredient filters are applied, the returned global meal IDs are intersected locally:
+* **Implementation:** The app fetches the authoritative Indian meal base set via `filter.php?a=India` (with automatic fallback to `filter.php?a=Indian` to safeguard against API changes). When category or ingredient filters are applied, the returned global meal IDs are intersected locally:
   $$\text{Target IDs} = \text{Indian IDs} \cap \text{Category IDs} \cap \text{Ingredient IDs}$$
 * This guarantees that non-Indian meals never leak into the discovery list.
 
@@ -73,13 +107,13 @@ TheMealDB V1 does not offer an endpoint combining cuisine area, category, and in
 
 ---
 
-## 4. Route Map
+## 5. Route Map
 - `recipe_list`: Main discovery screen with search, active filters banner, sort controls, and favourites toggle.
 - `recipe_detail/{mealId}`: Recipe detail screen displaying the hero image, badges, tags, ingredients table, instructions, and external link buttons.
 
 ---
 
-## 5. Offline Unit Tests
+## 6. Offline Unit Tests
 
 Run the test suite via Gradle:
 ```bash
@@ -94,12 +128,12 @@ The test suite runs 100% offline using bundled JSON fixtures in `app/src/test/re
 
 ---
 
-## 6. Assumptions & Tradeoffs
+## 7. Assumptions & Tradeoffs
 - **Local Search:** Given the size of the Indian collection on TheMealDB (~30-40 meals), performing name filtering locally across the loaded Indian set ensures sub-millisecond response times, preserves the Indian boundary, and avoids unnecessary network bandwidth.
 - **In-Memory Detail Cache:** Caching viewed details in memory provides instant re-navigation without disk overhead.
 
 ---
 
-## 7. AI Tool Disclosure
+## 8. AI Tool Disclosure
 - AI assistance was used for generating boilerplate DTO structures, JSON mock fixtures, and initial test setup.
 - All domain mappings, set intersection logic, concurrency controls, and Jetpack Compose UI components were reviewed, adapted, and verified manually.
