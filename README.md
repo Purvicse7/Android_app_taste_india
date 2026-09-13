@@ -47,10 +47,10 @@ Ensure `JAVA_HOME` points to JDK 17 or JDK 21:
 # 3. Install directly to a connected device via ADB
 ./gradlew installDebug
 ```
-*Generated APK file:* `app/build/outputs/apk/debug/app-debug.apk`
+*Generated APK file:* `app/build/outputs/apk/debug/TasteIndia-PoorvikaHR.apk`
 
 ### Option 3: Direct APK Installation on an Android Phone
-1. Transfer `app/build/outputs/apk/debug/app-debug.apk` to your phone via USB, Google Drive, WhatsApp, or email.
+1. Transfer `app/build/outputs/apk/debug/TasteIndia-PoorvikaHR.apk` to your phone via USB, Google Drive, WhatsApp, or email.
 2. Tap the `.apk` file to install (allow "Install unknown apps" if prompted).
 3. Open **TasteIndia** from your app drawer.
 
@@ -222,14 +222,14 @@ var filteredMeals = baseIndianMeals.filter { candidateIds.contains(it.id) }
 
 ## 10. Time Spent & Chronological Milestones
 
-Total development time: **~15 hours** structured incrementally across 3 milestones matching the 14 Git commits:
+Total development time: **~15 hours** structured incrementally across 3 milestones matching the 25 Git commits:
 
 | Milestone / Day | Commits | Focus Areas & Deliverables | Hours Spent |
 | :--- | :--- | :--- | :--- |
 | **Day 1: Foundation & Data Layer** | Commits 1–4 | Project initialization, Gradle configuration, DTO definitions, domain models, 20-ingredient normalization mapper, and bundled JSON fixtures. | ~4.5 hours |
 | **Day 2: Architecture & Core Business Logic** | Commits 5–8 | Repository implementation, Indian boundary set intersection, in-memory detail cache, in-flight deduplication, and SharedPreferences favourites persistence. | ~5.0 hours |
 | **Day 3: UI Craft, Polishing & CI Verification** | Commits 9–14 | Jetpack Compose screens, Material 3 theme, search debounce, filter bottom sheet, hero image details screen, GitHub Actions CI workflow, and upstream API fallback. | ~5.5 hours |
-| **Total** | **14 Commits** | **Complete production-grade native Android app** | **~15.0 hours** |
+| **Total** | **25 Commits** | **Complete production-grade native Android app** | **~15.0 hours** |
 
 ---
 
@@ -251,4 +251,4 @@ All 4 unit tests execute **100% offline** without network dependencies using bun
 ## 12. Honest AI & Tool Use Disclosure
 
 * **What AI was used for:** AI was utilized as a productivity accelerator to generate the initial 40-field DTO mapping boilerplate (`strIngredient1..20`), format static JSON test fixtures from sample API responses, and draft baseline README documentation.
-* **What was manually engineered & reviewed:** Every architectural layer, the local set intersection algorithm, thread-safe concurrency controls (`ConcurrentHashMap`, `Deferred`), Jetpack Compose UI state machines, edge-case sanitization (UTF-8 BOM removal and whitespace stripping), and deterministic offline unit tests were manually reviewed, debugged, and verified.
+* **What was manually engineered & reviewed:** Every architectural layer, the local set intersection algorithm, thread-safe concurrency controls and deterministic offline unit tests were manually reviewed, debugged, and verified.
