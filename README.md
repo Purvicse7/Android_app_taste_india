@@ -18,7 +18,7 @@ A native Android application built with Kotlin, Jetpack Compose, and Material 3 
 
 ### Option 1: Open in Android Studio (Recommended)
 1. Launch **Android Studio** (Koala / Ladybug or newer recommended).
-2. Click **File -> Open...** and select this directory (`TasteIndia-Android`).
+2. Click **File -> Open...** and select this directory (`TasteIndia-Android-PoorvikaHR`).
 3. Allow Gradle to sync dependencies (configured with JDK 17 / 21).
 4. **To view Compose Previews:**
    - Open `app/src/main/java/com/tasteindia/app/presentation/recipelist/components/RecipeCard.kt`.
@@ -39,10 +39,10 @@ Ensure `JAVA_HOME` points to JDK 17 or JDK 21:
 # Install directly onto a connected device via ADB
 ./gradlew installDebug
 ```
-*Generated APK Output:* `app/build/outputs/apk/debug/app-debug.apk`
+*Generated APK Output:* `app/build/outputs/apk/debug/TasteIndia-PoorvikaHR.apk`
 
 ### Option 3: Direct APK Installation on an Android Phone
-1. Transfer `app/build/outputs/apk/debug/app-debug.apk` to your Android device via USB, Google Drive, or messaging.
+1. Transfer `app/build/outputs/apk/debug/TasteIndia-PoorvikaHR.apk` to your Android device via USB, Google Drive, or messaging.
 2. Tap the `.apk` file on your phone to install (allow "Install unknown apps" if prompted).
 3. Open **TasteIndia** from your app drawer.
 
